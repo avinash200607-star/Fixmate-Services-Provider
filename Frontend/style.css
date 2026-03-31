@@ -1,0 +1,188 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Gradient Background */
+body {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+}
+
+/* Center utility (only for login/register) */
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Form Container */
+.form-container {
+    background: #fff;
+    padding: 30px;
+    width: 320px;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    text-align: center;
+}
+
+/* Headings */
+.form-container h2 {
+    margin-bottom: 20px;
+}
+
+/* Labels */
+.form-container label {
+    display: block;
+    text-align: left;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+/* Inputs */
+.form-container input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    outline: none;
+}
+
+/* Input focus */
+.form-container input:focus {
+    border-color: #667eea;
+}
+
+/* Reusable Button */
+.btn {
+    width: 100%;
+    padding: 10px;
+    margin-top: 15px;
+    background: linear-gradient(135deg, #4facfe, #00f2fe);
+    border: none;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    opacity: 0.9;
+}
+
+/* Message */
+#message {
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+/* Links */
+.form-container a {
+    color: #667eea;
+    text-decoration: none;
+}
+
+.form-container a:hover {
+    text-decoration: underline;
+}
+
+/* Dashboard */
+.dashboard-container {
+    background: #fff;
+    padding: 30px;
+    width: 350px;
+    margin: 50px auto;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    text-align: center;
+}
+
+/* Button group */
+.btn-group button {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    background: linear-gradient(135deg, #4facfe, #00f2fe);
+    color: white;
+}
+
+/* Logout */
+.logout-btn {
+    background: red !important;
+}
+
+.logout-btn:hover {
+    background: darkred !important;
+}
+.error {
+    color: red;
+}
+
+.success {
+    color: green;
+}
+.services-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    padding: 20px;
+
+    max-width: 1100px;   
+    margin: auto;         
+}
+
+.services-container h2 {
+    grid-column: 1 / -1;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.service-card {
+    background: white;
+    padding: 15px;
+    border-radius: 12px;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+}
+.service-card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;   /* THIS LINE FIXES YOUR PROBLEM */
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+.service-card button {
+    margin-top: 10px;
+}
+
+/* Accept button */
+.btn {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    background: linear-gradient(45deg, #4facfe, #00f2fe);
+    color: white;
+    cursor: pointer;
+}
+
+/* Reject button */
+.reject-btn {
+    width: 100%;
+    padding: 10px;
+    background: linear-gradient(to right, #ff4e50, #f00000);
+    border: none;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
