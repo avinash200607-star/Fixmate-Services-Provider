@@ -1,28 +1,32 @@
 document.getElementById("loginForm").addEventListener("submit", function(e) {
     e.preventDefault();
 
-    let email = document.getElementById("email").value.trim();
+    let email = document.getElementById("email").value.trim().toLowerCase();
     let password = document.getElementById("password").value.trim();
     let message = document.getElementById("message");
 
     let users = JSON.parse(localStorage.getItem("users")) || [];
 
-    let foundUser = users.find(u => u.email === email && u.password === password);
+    let user = users.find(
+        u => u.email === email && u.password === password
+    );
 
-    if (foundUser) {
-
-        // 🔥 THIS IS THE IMPORTANT LINE
-        localStorage.setItem("loggedInUser", JSON.stringify(foundUser));
-
-        message.style.color = "green";
-        message.textContent = "Login successful! Redirecting...";
-
-        setTimeout(() => {
-            window.location.href = "dashboard.html";
-        }, 1500);
-
-    } else {
+    if (!user) {
         message.style.color = "red";
-        message.textContent = "Invalid email or password";
+        message.textContent = "Invalid credentials";
+        return;
     }
+
+    localStorage.setItem("loggedInUser", JSON.stringify(user));
+
+    message.style.color = "green";
+    message.textContent = "Login successful";
+
+    setTimeout(() => {
+        if (user.role === "admin") {
+            window.location.href = "admin.html";
+        } else {
+            window.location.href = "dashboard.html";
+        }
+    }, 1000);
 });

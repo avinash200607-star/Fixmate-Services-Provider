@@ -3,17 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Panel</title>
+    <title>FixMate - Admin Panel</title>
+
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
-<body>
 
-<div class="services-container">
-    <h2>All Bookings</h2>
+<body class="admin-body">
 
-    <div id="bookingList"></div>
+<div class="logo">
+    <i class="fas fa-tools"></i> FixMate
 </div>
 
+<div class="services-container">
+    <h2><i class="fas fa-user-shield"></i> All Bookings</h2>
+</div>
+
+<div class="admin-controls">
+
+    <input type="text" id="searchInput" placeholder="Search by user...">
+
+    <div class="filters">
+        <button onclick="filterBookings('All')">All</button>
+        <button onclick="filterBookings('Pending')">Pending</button>
+        <button onclick="filterBookings('Accepted')">Accepted</button>
+    </div>
+
+    <div class="stats">
+        <p>Total: <span id="totalCount">0</span></p>
+        <p>Pending: <span id="pendingCount">0</span></p>
+        <p>Accepted: <span id="acceptedCount">0</span></p>
+    </div>
+
+</div>
+
+<div id="bookingList" class="services-container"></div>
+
+<button onclick="window.location.href='dashboard.html'" class="btn">
+    Back to Dashboard
+</button>
+
 <script src="admin.js"></script>
+
 </body>
 </html>

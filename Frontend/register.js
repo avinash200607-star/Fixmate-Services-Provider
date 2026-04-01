@@ -2,62 +2,42 @@ document.getElementById("registerForm").addEventListener("submit", function(e) {
     e.preventDefault();
 
     let name = document.getElementById("name").value.trim();
-    let email = document.getElementById("email").value.trim();
+    let email = document.getElementById("email").value.trim().toLowerCase();
     let password = document.getElementById("password").value.trim();
     let message = document.getElementById("message");
 
-    // Reset message
     message.textContent = "";
-    message.className = "";
 
-    // Empty check
-    if (name === "" || email === "" || password === "") {
-        message.textContent = "All fields are required";
-        message.className = "error";
-        return;
-    }
-
-    // Email validation
-    let emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
-    if (!email.match(emailPattern)) {
-        message.textContent = "Invalid email format";
-        message.className = "error";
-        return;
-    }
-
-    // Password validation
-    if (password.length < 6) {
-        message.textContent = "Password must be at least 6 characters";
-        message.className = "error";
+    if (!name || !email || !password) {
+        message.textContent = "All fields required";
         return;
     }
 
     let users = JSON.parse(localStorage.getItem("users")) || [];
 
-    // Duplicate email check
+    // ❗ ADMIN CREATION (ONLY YOU KNOW THIS EMAIL)
+    let role = (email === "admin@fixmate.com") ? "admin" : "user";
+
     let existingUser = users.find(u => u.email === email);
+
     if (existingUser) {
-        message.textContent = "Email already registered";
-        message.className = "error";
+        message.textContent = "Email already exists";
         return;
     }
 
     let user = {
-        name: name,
-        email: email,
-        password: password // demo only
+        name,
+        email,
+        password,
+        role
     };
 
     users.push(user);
     localStorage.setItem("users", JSON.stringify(users));
 
-    // Success
-    message.textContent = "Registration successful! Redirecting...";
-    message.className = "success";
-
-    document.getElementById("registerForm").reset();
+    message.textContent = "Registered successfully";
 
     setTimeout(() => {
         window.location.href = "login.html";
-    }, 1500);
+    }, 1000);
 });

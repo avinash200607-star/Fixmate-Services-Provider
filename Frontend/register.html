@@ -3,35 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register</title>
+    <title>FixMate - Register</title>
+
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
-<body class="center">
+
+<body>
+
+<div class="logo">
+    <i class="fas fa-tools"></i> FixMate
+</div>
 
 <div class="form-container">
-    <h2>Register</h2>
+    <h2><i class="fas fa-user-plus"></i> FixMate Register</h2>
 
     <form id="registerForm">
+        <div class="input-group">
+            <i class="fas fa-user"></i>
+            <input type="text" id="name" placeholder="Full Name" required>
+        </div>
 
-        <label>Full Name</label>
-        <input type="text" id="name" required>
+        <div class="input-group">
+            <i class="fas fa-envelope"></i>
+            <input type="email" id="email" placeholder="Email" required>
+        </div>
 
-        <label>Email</label>
-        <input type="email" id="email" required>
+        <div class="input-group">
+            <i class="fas fa-lock"></i>
+            <input type="password" id="password" placeholder="Password" required>
+        </div>
 
-        <label>Password</label>
-        <input type="password" id="password" required>
-
-        <button type="submit" class="btn">Register</button>
+        <button type="submit" class="btn">
+            <i class="fas fa-user-plus"></i> Register
+        </button>
     </form>
 
     <p id="message"></p>
 
     <p>Already have an account? 
-        <a href="login.html">Login</a>
+        <a href="login.html">
+            <i class="fas fa-sign-in-alt"></i> Login
+        </a>
     </p>
 </div>
 
+<!-- ✅ FIXED FILE LINK -->
 <script src="register.js"></script>
+
 </body>
 </html>
